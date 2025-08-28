@@ -34,3 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+public func runAfterTime(time: Double, block: @escaping () -> ()) {
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
+        block()
+    })
+}
