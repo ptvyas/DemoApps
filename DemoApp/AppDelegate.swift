@@ -34,6 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+enum STORYBOARD: String {
+    case Main           = "Main"
+}
+
+class Utilities {
+    static func getStoryboard(storyboardName: String) -> UIStoryboard {
+        return UIStoryboard(name: storyboardName, bundle: nil)
+    }
+    
+    static func loadVC(_ storyboardName: STORYBOARD, _ vId: String) -> UIViewController {
+        return getStoryboard(storyboardName: storyboardName.rawValue).instantiateViewController(withIdentifier: vId)
+    }
+}
+
 public func runAfterTime(time: Double, block: @escaping () -> ()) {
     
     DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: {
