@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btn1Action(_ sender: Any) {
-        //guard let objVC = MainTabbarVC.getVC() else { return }
-        guard let objVC = Tab2_DetailsVC.getVC() else { return }
+        guard let objVC = MainTabbarVC.getVC() else { return }
+        //guard let objVC = Tab2_DetailsVC.getVC() else { return }
         
         //objVC.hidesBottomBarWhenPushed = true
         //self.navigationController?.pushViewController(objVC, animated: true)
@@ -36,7 +36,10 @@ class ViewController: UIViewController {
         //self.navigationController?.pushViewController(objVC, animated: true)
         
         let navi = UINavigationController.init(rootViewController: objVC)
-//        navi.isNavigationBarHidden = true
+        navi.isNavigationBarHidden = true
+        navi.navigationBar.isHidden = true
+        navi.navigationController?.isNavigationBarHidden = true
+        
 //        self.appDelegate?.window?.rootViewController = navi
 //        self.appDelegate?.window?.makeKeyAndVisible()
         

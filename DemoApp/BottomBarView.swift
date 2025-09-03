@@ -31,6 +31,9 @@ class BottomBarView: UIView {
     //private var buttons: [UIButton] = []
     private var selectedIndex: Int = 0
     
+    var onButtonTap: ((Int) -> Void)?
+    
+    /*
     // Define a default height
     private let barHeight: CGFloat = 60
     
@@ -44,7 +47,7 @@ class BottomBarView: UIView {
         super.init(coder: coder)
         //setupView()
     }
-    
+    */
     func setupView() {
         backgroundColor = .systemGray6
         
@@ -87,29 +90,41 @@ class BottomBarView: UIView {
         updateSelection(index: 0)
     }
     
+    /*
     // 🔑 Auto size support
        override var intrinsicContentSize: CGSize {
            return CGSize(width: UIView.noIntrinsicMetric, height: barHeight)
        }
-    
+    */
     //func buttonTapped(_ sender: UIButton) {
     @IBAction func buttonTapped(_ sender: UIButton) {
     
     
-        updateSelection(index: sender.tag)
-        delegate?.bottomBarButtonTapped(index: sender.tag)
+        //updateSelection(index: sender.tag)
+//        delegate?.bottomBarButtonTapped(index: sender.tag)
+        
+        onButtonTap?(sender.tag) // send index to container
     }
     
     func updateSelection(index: Int) {
+        /*
         for (i, btn) in buttons.enumerated() {
             if i == index {
                 btn.setTitleColor(.systemBlue, for: .normal)
-                btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+                btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
             } else {
                 btn.setTitleColor(.darkGray, for: .normal)
-                btn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+                btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
             }
         }
+        */
+        
+        for (i, button) in buttons.enumerated() {
+                    button.isSelected = (i == index)
+                    button.backgroundColor = button.isSelected ? .systemBlue : .clear
+                    button.setTitleColor(button.isSelected ? .white : .systemBlue, for: .normal)
+                }
+        
         selectedIndex = index
     }
 }

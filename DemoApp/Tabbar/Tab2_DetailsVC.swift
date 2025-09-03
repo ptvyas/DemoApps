@@ -21,7 +21,7 @@ class Tab2_DetailsVC: UIViewController {
         
         
         print("Hi Helloooo!")
-        
+        /*
         let bottomBar = BottomBarView.instanceFromNib()
                 bottomBar.translatesAutoresizingMaskIntoConstraints = false
         bottomBar.backgroundColor = .clear
@@ -33,6 +33,7 @@ class Tab2_DetailsVC: UIViewController {
                     bottomBar.bottomAnchor.constraint(equalTo: viewTB.bottomAnchor, constant: 0),
                     bottomBar.heightAnchor.constraint(equalToConstant: viewTB.frame.height)
                 ])
+        */
         
 //        if let appDelegate = self.appDelegate, let bottomBar = appDelegate.bottomBar {
 //            bottomBar.delegate = self
