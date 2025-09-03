@@ -72,7 +72,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cY-51-7d6">
-                                <rect key="frame" x="20" y="704" width="353" height="60"/>
+                                <rect key="frame" x="12" y="716" width="369" height="60"/>
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="izp-nP-K9Z"/>
@@ -91,10 +91,10 @@
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
                             <constraint firstItem="emb-P8-KQ2" firstAttribute="centerX" secondItem="Id1-sk-mQ5" secondAttribute="centerX" id="87a-h0-UFH"/>
-                            <constraint firstItem="ofD-ei-9rz" firstAttribute="top" secondItem="6cY-51-7d6" secondAttribute="bottom" constant="20" id="BX4-lO-62f"/>
+                            <constraint firstItem="ofD-ei-9rz" firstAttribute="top" secondItem="6cY-51-7d6" secondAttribute="bottom" constant="8" id="BX4-lO-62f"/>
                             <constraint firstAttribute="bottom" secondItem="Ifv-o6-AZk" secondAttribute="bottom" id="DFC-KS-hN1"/>
-                            <constraint firstItem="6cY-51-7d6" firstAttribute="leading" secondItem="Id1-sk-mQ5" secondAttribute="leading" constant="20" id="O4S-ZK-fCv"/>
-                            <constraint firstAttribute="trailing" secondItem="6cY-51-7d6" secondAttribute="trailing" constant="20" id="QY9-Mi-Z7E"/>
+                            <constraint firstItem="6cY-51-7d6" firstAttribute="leading" secondItem="Id1-sk-mQ5" secondAttribute="leading" constant="12" id="O4S-ZK-fCv"/>
+                            <constraint firstAttribute="trailing" secondItem="6cY-51-7d6" secondAttribute="trailing" constant="12" id="QY9-Mi-Z7E"/>
                             <constraint firstItem="Ifv-o6-AZk" firstAttribute="top" secondItem="Id1-sk-mQ5" secondAttribute="top" id="Ulu-VE-xpe"/>
                             <constraint firstItem="7G8-GZ-Kek" firstAttribute="top" secondItem="emb-P8-KQ2" secondAttribute="bottom" constant="37.666666666666686" id="WBB-Sc-1vX"/>
                             <constraint firstItem="Ifv-o6-AZk" firstAttribute="leading" secondItem="Id1-sk-mQ5" secondAttribute="leading" id="a18-Hi-Awa"/>

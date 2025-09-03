@@ -28,6 +28,8 @@ class BottomBarView: UIView {
     
     @IBOutlet var buttons: [UIButton]!
     
+    @IBOutlet var view1: UIView!
+    
     //private var buttons: [UIButton] = []
     private var selectedIndex: Int = 0
     
@@ -88,6 +90,12 @@ class BottomBarView: UIView {
         */
         // default select first button
         updateSelection(index: 0)
+        
+        runAfterTime(time: 1.0) {
+            //self.view1.layer.cornerRadius = self.view1.bounds.height / 2
+            self.view1.layer.cornerRadius = 20
+            self.view1.clipsToBounds = true
+        }
     }
     
     /*
@@ -121,7 +129,7 @@ class BottomBarView: UIView {
         
         for (i, button) in buttons.enumerated() {
                     button.isSelected = (i == index)
-                    button.backgroundColor = button.isSelected ? .systemBlue : .clear
+                    //button.backgroundColor = button.isSelected ? .systemBlue : .clear
                     button.setTitleColor(button.isSelected ? .white : .systemBlue, for: .normal)
                 }
         
