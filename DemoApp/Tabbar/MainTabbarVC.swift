@@ -1,6 +1,6 @@
 
 class MainTabbarVC: UITabBarController {
-    //    class func getVC() -> MainTabbarVC? { return Utilities.loadVC(.Tabbar, "MainTabbarVC") as? MainTabbarVC }
+    class func getVC() -> MainTabbarVC? { return Utilities.loadVC(.Main, "MainTabbarVC") as? MainTabbarVC }
     
     //MARK: -
     

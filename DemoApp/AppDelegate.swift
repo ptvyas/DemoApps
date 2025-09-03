@@ -10,8 +10,16 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    // MARK: -
+    var window: UIWindow?
+    //var bottomBar = BottomBarView()
+    var bottomBar : BottomBarView = {
+       let view = BottomBarView.instanceFromNib()
+       view.setupView()
+       return view
+   }()
+    
+    // MARK: -
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -35,7 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 enum STORYBOARD: String {
-    case Main           = "Main"
+    case Main   = "Main"
+    case Type1  = "Type1"
+}
+
+extension UIViewController {
+    var appDelegate: AppDelegate? {
+        return UIApplication.shared.delegate as? AppDelegate
+    }
 }
 
 class Utilities {

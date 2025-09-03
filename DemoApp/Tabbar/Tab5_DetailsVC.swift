@@ -1,15 +1,16 @@
 //
-//  Tab1_DetailsVC.swift
+//  Tab5_DetailsVC.swift
 //  DemoApp
 //
-//  Created by I'm Vyas on 02/09/25.
+//  Created by I'm Vyas on 03/09/25.
 //
+
 
 import UIKit
 
-class Tab1_DetailsVC: UIViewController {
-    class func getVC() -> Tab1_DetailsVC? {
-        return Utilities.loadVC(.Main, "Tab1_DetailsVC") as? Tab1_DetailsVC
+class Tab5_DetailsVC: UIViewController {
+    class func getVC() -> Tab5_DetailsVC? {
+        return Utilities.loadVC(.Main, "Tab5_DetailsVC") as? Tab5_DetailsVC
     }
     
     override func viewDidLoad() {
@@ -21,3 +22,4 @@ class Tab1_DetailsVC: UIViewController {
         print("Hi Helloooo!")
     }
 }
+
