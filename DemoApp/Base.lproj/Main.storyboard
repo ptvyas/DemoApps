@@ -326,9 +326,20 @@
                                     <constraint firstAttribute="height" constant="60" id="9Fm-tj-B78"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGo-we-xR0">
+                                <rect key="frame" x="165" y="469" width="64" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="2222"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dc-Oo-Pnp"/>
+                                    <action selector="btnAction:" destination="OqI-a0-cW5" eventType="touchUpInside" id="EuP-0U-o8j"/>
+                                    <action selector="btnAction:" destination="40Q-aW-yO9" eventType="touchUpInside" id="zIc-Nl-wn8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="HGo-we-xR0" firstAttribute="top" secondItem="FVV-hG-tm4" secondAttribute="bottom" constant="32.666666666666686" id="16c-mf-Smh"/>
                             <constraint firstItem="BzK-rf-9qR" firstAttribute="leading" secondItem="dBv-UP-inI" secondAttribute="leading" constant="12" id="20V-H8-cAu"/>
                             <constraint firstItem="FVV-hG-tm4" firstAttribute="centerY" secondItem="dBv-UP-inI" secondAttribute="centerY" id="3vq-yx-JpH"/>
                             <constraint firstAttribute="trailing" secondItem="BzK-rf-9qR" secondAttribute="trailing" constant="12" id="Dih-eE-TPZ"/>
@@ -363,10 +374,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhY-ex-Fcu">
+                                <rect key="frame" x="159" y="500" width="76" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="33333"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="OqI-a0-cW5" eventType="touchUpInside" id="6iY-xk-fzS"/>
+                                    <action selector="btnAction:" destination="14i-QD-vN1" eventType="touchUpInside" id="SED-LN-3l4"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ai8-Xh-ff4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="A7y-W2-3Pd" firstAttribute="centerY" secondItem="eZu-nK-k37" secondAttribute="centerY" id="2oJ-n4-ljQ"/>
+                            <constraint firstItem="QhY-ex-Fcu" firstAttribute="top" secondItem="A7y-W2-3Pd" secondAttribute="bottom" constant="63.666666666666686" id="LHk-8o-biF"/>
                             <constraint firstItem="A7y-W2-3Pd" firstAttribute="centerX" secondItem="eZu-nK-k37" secondAttribute="centerX" id="sbb-mt-nCX"/>
                         </constraints>
                     </view>
@@ -394,11 +416,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egp-GL-NzU">
+                                <rect key="frame" x="163" y="476" width="67" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="4444"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="OqI-a0-cW5" eventType="touchUpInside" id="B28-jb-4CO"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C4v-be-vaK"/>
+                                    <action selector="btnAction:" destination="7BP-M2-Xtj" eventType="touchUpInside" id="RSA-C1-9KL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="V6U-Th-NMz" firstAttribute="centerX" secondItem="SSD-wu-cDz" secondAttribute="centerX" id="7Kx-e5-gjS"/>
                             <constraint firstItem="V6U-Th-NMz" firstAttribute="centerY" secondItem="SSD-wu-cDz" secondAttribute="centerY" id="Ciw-AW-rZ4"/>
+                            <constraint firstItem="egp-GL-NzU" firstAttribute="top" secondItem="V6U-Th-NMz" secondAttribute="bottom" constant="39.666666666666686" id="zXM-tF-IB9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QTR-Xy-n8F"/>
@@ -425,10 +458,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtT-Ke-QTq">
+                                <rect key="frame" x="164" y="502" width="65" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="5555"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="Yh9-xd-0xs" eventType="touchUpInside" id="CQM-Az-R0T"/>
+                                    <action selector="btnAction:" destination="OqI-a0-cW5" eventType="touchUpInside" id="VXd-9I-W9V"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gHj-xl-jmA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="YPn-bL-j1b" firstAttribute="centerX" secondItem="1Bf-rc-Faf" secondAttribute="centerX" id="7wY-Yb-QWB"/>
+                            <constraint firstItem="wtT-Ke-QTq" firstAttribute="top" secondItem="YPn-bL-j1b" secondAttribute="bottom" constant="65.666666666666686" id="QgA-CQ-WIX"/>
                             <constraint firstItem="YPn-bL-j1b" firstAttribute="centerY" secondItem="1Bf-rc-Faf" secondAttribute="centerY" id="Suh-oG-cHE"/>
                         </constraints>
                     </view>

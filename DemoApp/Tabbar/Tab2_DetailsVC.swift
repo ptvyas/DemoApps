@@ -68,6 +68,12 @@ class Tab2_DetailsVC: UIViewController {
             //appDelegate.bottomBar.intrinsicContentSize = self.viewTB.bounds
             */
         }
+    
+    @IBAction func btnAction(_ sender: Any) {
+        guard let objVC = Tab3_DetailsVC.getVC() else { return }
+        objVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
 }
 
 extension Tab2_DetailsVC : BottomBarDelegate {

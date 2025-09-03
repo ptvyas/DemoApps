@@ -20,5 +20,11 @@ class Tab4_DetailsVC: UIViewController {
         
         print("Hi Helloooo!")
     }
+    
+    @IBAction func btnAction(_ sender: Any) {
+        guard let objVC = Tab5_DetailsVC.getVC() else { return }
+        objVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(objVC, animated: true)
+    }
 }
 
