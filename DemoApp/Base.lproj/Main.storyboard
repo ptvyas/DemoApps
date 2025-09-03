@@ -19,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XFT-0D-g0N">
-                                <rect key="frame" x="121.66666666666669" y="349.33333333333331" width="150" height="151.66666666666669"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="tabbar_selected" translatesAutoresizingMaskIntoConstraints="NO" id="XFT-0D-g0N">
+                                <rect key="frame" x="121.66666666666669" y="351" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XFT-0D-g0N" secondAttribute="height" id="k9R-j2-RCh"/>
                                     <constraint firstAttribute="width" constant="150" id="no7-kt-zXe"/>
@@ -115,7 +115,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="MainTabbarVC" automaticallyAdjustsScrollViewInsets="NO" id="YcC-4p-x8l" customClass="MainTabbarVC" customModule="DemoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C7c-Oa-1KX" customClass="CustomTabBar" customModule="DemoApp" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C7c-Oa-1KX">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -374,11 +374,11 @@
             </objects>
             <point key="canvasLocation" x="4165.6488549618316" y="1462.6760563380283"/>
         </scene>
-        <!--Entries-->
+        <!--Navigation Controller-->
         <scene sceneID="s6H-Y9-j50">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCE-VE-6n0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Entries" image="1.circle" catalog="system" id="rOs-pO-Vkl"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab1" selectedImage="tab1_" id="rOs-pO-Vkl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c2n-Jb-k2v">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
@@ -395,12 +395,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.circle" catalog="system" width="128" height="123"/>
         <image name="2.circle" catalog="system" width="128" height="123"/>
         <image name="3.circle" catalog="system" width="128" height="123"/>
         <image name="4.circle" catalog="system" width="128" height="123"/>
         <image name="5.circle" catalog="system" width="128" height="123"/>
-        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
+        <image name="tab1" width="24" height="24"/>
+        <image name="tab1_" width="66" height="48"/>
+        <image name="tabbar_selected" width="81" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

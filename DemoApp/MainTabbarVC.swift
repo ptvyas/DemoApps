@@ -27,6 +27,67 @@ class MainTabbarVC: UITabBarController {
         }
     }
     */
+    
+     // Force layout after rotation/size changes (helps recalc frames)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        setupTabbar()
+    }
+}
+
+import UIKit
+
+class CustomTabBarImage: UITabBar {
+    
+    private let bgImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "tabbar_bg") // your background image
+        //iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleAspectFit
+        iv.clipsToBounds = true
+        //iv.layer.cornerRadius = 20
+        return iv
+    }()
+    
+    private let selectionImageView =  {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "tabbar_selected") // your background image
+        //iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleAspectFit
+        iv.clipsToBounds = true
+        //iv.layer.cornerRadius = 20
+        return iv
+    }()
+    
+    // Init for storyboard/xib
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupBackground()
+    }
+    
+    // Init for programmatic
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupBackground()
+    }
+    
+    private func setupBackground() {
+        backgroundImage = UIImage()   // remove default background
+        shadowImage = UIImage()       // remove default shadow
+        backgroundColor = .clear
+        
+        insertSubview(bgImageView, at: 0) // place behind items
+        
+        insertSubview(selectionImageView, at: 1)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // Add padding around tab bar background
+        let padding: CGFloat = 10
+        bgImageView.frame = bounds.insetBy(dx: padding, dy: padding)
+    }
 }
 
 extension MainTabbarVC {
@@ -38,9 +99,110 @@ extension MainTabbarVC {
         self.tabBar.tintColor = .black
         self.tabBar.unselectedItemTintColor = .white
                
-        runAfterTime(time: 0.5) { self.updateTabPosstion() }
+        //runAfterTime(time: 0.5) { self.updateTabPosstion() }
+        
+        //self.usingBGImageClass()
+        
+        self.usingBGImage()
         
     }
+    
+    private func setupTabbar() {
+            let tabBar = self.tabBar
+
+            // Background image
+        tabBar.backgroundImage = UIImage(named: "tabbar_bg")
+            tabBar.shadowImage = UIImage()
+
+        /*
+            // Selected tab background image with 80% height of tab bar
+            if let selectedImage = UIImage(named: "tabbar_selected") {
+                let tabBarHeight = tabBar.bounds.height
+                let itemWidth = tabBar.bounds.width / CGFloat(tabBar.items?.count ?? 1)
+                let itemHeight = tabBarHeight * 0.80   // 80% height
+
+                // Resize image to fit item width x 80% height
+                let newImage = resizeImage(image: selectedImage, size: CGSize(width: itemWidth, height: itemHeight))
+                
+                // Assign stretched image
+                tabBar.selectionIndicatorImage = newImage.resizableImage(withCapInsets: .zero)
+            }
+        */
+
+            // Move icons & text slightly down to center inside new indicator
+            let offsetY: CGFloat = 6
+            tabBar.items?.forEach { item in
+                item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: offsetY)
+                if let image = item.image {
+                    item.imageInsets = UIEdgeInsets(top: offsetY, left: 0, bottom: -offsetY, right: 0)
+                }
+            }
+        }
+
+        // Resize helper
+        private func resizeImage(image: UIImage, size: CGSize) -> UIImage {
+            UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+            image.draw(in: CGRect(origin: .zero, size: size))
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return newImage ?? image
+        }
+    
+    func usingBGImageClass() {
+        // Replace system tab bar with our custom one
+        setValue(CustomTabBarImage(), forKey: "tabBar")
+
+        // Hide default background/shadow via appearance so our bgImageView is visible cleanly
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundImage = UIImage()  // transparent
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = .clear
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
+
+        // Optional: ensure item icons keep original colors (not tinted)
+        tabBar.items?.forEach {
+            $0.image = $0.image?.withRenderingMode(.alwaysOriginal)
+            $0.selectedImage = $0.selectedImage?.withRenderingMode(.alwaysOriginal)
+        }
+    }
+    
+    func usingBGImage() {
+        // Create appearance
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground() // keeps transparency
+        
+        // Set background image
+        appearance.backgroundImage = UIImage(named: "tabbar_bg")
+        
+        // Remove shadow
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = .clear
+        
+        // Apply appearance
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
+        }
+
+        // Selected tab background
+        if let selectedImg = UIImage(named: "tabbar_selected") {
+            let tabWidth = tabBar.bounds.width / CGFloat(tabBar.items?.count ?? 1)
+            let size = CGSize(width: tabWidth, height: tabBar.bounds.height)
+            
+            UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+            selectedImg.draw(in: CGRect(origin: .zero, size: size))
+            let resized = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            tabBar.selectionIndicatorImage = resized
+        }
+    }
+    
+    
     
     func updateTabPosstion() {
         if UIApplication.shared.hasTopNotch {
@@ -64,10 +226,10 @@ extension MainTabbarVC {
 
 extension MainTabbarVC: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let bar = tabBar as? CustomTabBar,
-           let index = tabBar.items?.firstIndex(of: viewController.tabBarItem) {
-            bar.updateHighlight(for: index, animated: true)
-        }
+//        if let bar = tabBar as? CustomTabBar,
+//           let index = tabBar.items?.firstIndex(of: viewController.tabBarItem) {
+//            bar.updateHighlight(for: index, animated: true)
+//        }
     }
 }
 
